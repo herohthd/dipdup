@@ -20,4 +20,11 @@ Materials for the video tutorial [How to build a backend for your Tezos dapp](ht
 docker-compose up -d --build
 ```
 
+View docker containers
+
+```
+sudo lazydocker
+```
+
+Open http://127.0.0.1:8080/console to view hashura with password of admin is "changme"
 
