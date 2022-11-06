@@ -11,7 +11,9 @@ async def on_mint(
     mint: Transaction[MintParameter, Fa2ContractJOKOStorage],
 ) -> None:
     # owner_address = mint.parameter.address
-
+    base_rarible_url = "https://rarible.com/token/tezos/"
+    contract_address = "KT1JkaXjdxrWSrVjXzufTgdJTJC9UoQjkveW"
+    rarible_url = base_rarible_url + contract_address + ":" + mint.parameter.token_id
     # owner,bool = await models.Mint.get_or_create(address = owner_address)
 
     mint = models.Mint(
@@ -20,6 +22,7 @@ async def on_mint(
         token_id = mint.parameter.token_id,
         amount = mint.parameter.amount,
         level = mint.data.level,
+        rarible_url = rarible_url,
         timestamp = mint.data.timestamp,
     )
     await mint.save()

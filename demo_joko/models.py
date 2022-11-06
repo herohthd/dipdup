@@ -1,4 +1,5 @@
-from tortoise import Model, fields
+from dipdup.models import Model
+from tortoise import fields
 from enum import IntEnum
 from tortoise.contrib.postgres.fields import ArrayField
 
@@ -81,6 +82,8 @@ class Mint(Model):
     amount = fields.CharField(36)
     token_id = fields.CharField(100)
     level = fields.BigIntField()
+    granted_url = fields.CharField(200,default="")
+    rarible_url = fields.CharField(100)
     timestamp = fields.DatetimeField()
 
 class TokenOwner(Model):
@@ -109,4 +112,6 @@ class HighestBidder(Model):
 
 class Bidder(Model):
     address = fields.CharField(36, pk=True)
+
+
     
